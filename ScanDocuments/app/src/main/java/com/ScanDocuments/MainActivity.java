@@ -19,7 +19,6 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,20 +28,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.mlkit.vision.common.InputImage;
-import com.google.mlkit.vision.text.Text;
-import com.google.mlkit.vision.text.TextRecognition;
-import com.google.mlkit.vision.text.TextRecognizer;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.regex.Pattern;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -68,13 +57,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mIDCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                runTextRecognitionBackSide();
+                SearchForPatterns.runTextRecognitionBackSide(mSelectedImage);
             }
         });
         mSimCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                runTextRecognitionSimCard();
+                SearchForPatterns.runTextRecognitionSimCard(mSelectedImage);
             }
         });
         Spinner dropdown = findViewById(R.id.spinner);
@@ -84,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
     }
-
+/* This part for processing SimCard
     private void runTextRecognitionSimCard() {
 
             InputImage image = InputImage.fromBitmap(mSelectedImage, 0);
@@ -139,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 }}
             }
-    }
+    }*/
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -243,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return bitmap;
     }
 
-/* This part for processing IDCard */
+/* This part for processing IDCard
 private void runTextRecognition() {
 
     InputImage image = InputImage.fromBitmap(mSelectedImage, 0);
@@ -319,18 +308,18 @@ private void runTextRecognition() {
                 List<Text.Element> elements = lines.get(j).getElements();
                         /*
                         This patterns for matching DOB  */
-                if(flag){
+                /*if(flag){
                     if(Pattern.matches("[0-9].*[0-9]",lines.get(j).getText())){
                         flag=false;
                         Log.i("DOB is ",lines.get(j).getText().toString());
                     }
-                }
+                }*/
                 /* This one for getting CIN */
-                if(Pattern.matches("[A-Z].*[0-9].*",lines.get(j).getText())){
+               /* if(Pattern.matches("[A-Z].*[0-9].*",lines.get(j).getText())){
                     Log.i("CIN is ",lines.get(j).getText().toString());
-                }
+                }*/
                 /* This one for getting LName and FName */
-                if (Pattern.matches("[A-Z].*[A-Z]", lines.get(j).getText())) {
+              /*  if (Pattern.matches("[A-Z].*[A-Z]", lines.get(j).getText())) {
                     if(flag_name) {
                         Log.i("FName is ", lines.get(j).getText().toString());
                         flag_name=false;
@@ -342,11 +331,12 @@ private void runTextRecognition() {
                 }
             }
 
-        }}
-        /* This part is for processing back side of the ID Card */
-        private void runTextRecognitionBackSide() {
+        }}*/
+        /* This part is for processing back side of the ID Card
+        private void runTextRecognitionBackSide(Bitmap bitmap) {
 
-            InputImage image = InputImage.fromBitmap(mSelectedImage, 0);
+            InputImage image = InputImage.fromBitmap(bitmap, 0);
+
             TextRecognizer recognizer = TextRecognition.getClient();
             mIDCardButton.setEnabled(false);
             recognizer.process(image)
@@ -386,7 +376,7 @@ private void runTextRecognition() {
                         /*
                         This patterns for matching Address  */
 
-                    if(Pattern.matches("Adresse.*",lines.get(j).getText())){
+                  /*  if(Pattern.matches("Adresse.*",lines.get(j).getText())){
                         Log.i("Adresse is ",lines.get(j).getText().toString().replace("Adresse","").toUpperCase());
                     }
 
@@ -394,6 +384,7 @@ private void runTextRecognition() {
                 }
             }
 
-        }}
+        }*/
+}
 
 
