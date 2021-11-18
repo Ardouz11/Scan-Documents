@@ -1,13 +1,11 @@
 Codelabs for ML Kit
 ============
 
-This repository contains the code for the ML Kit codelabs:
-* [Recognize text and facial features with ML Kit](https://g.co/codelabs/mlkit-android)
-
+This repository contains the code of extracting data from Sim Card and the ID Card based on ML Kit
 Introduction
 ------------
-In these codelabs, you will build an Android app that uses various features
-of ML Kit to recognize text and detect facial features. You will learn how to use the built in on-device Text Recognition API and the face contour API.
+This Android app uses various features
+of ML Kit to recognize text .It uses the built in on-device Text Recognition API .
 
 Pre-requisites
 --------------
@@ -15,11 +13,8 @@ None.
 
 Getting Started
 ---------------
-Open the `final/` folder in Android Studio to see the final product.
-Visit the Google codelabs site to follow along the guided steps.
+Open the `ScanDocuments/` folder in Android Studio to see the final product.
 
-Screenshots
------------
 
 Support
 -------
