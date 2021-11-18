@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-mlkit-face-detection:16.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09b124fde8aee447751b82b9d9abb95d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09b124fde8aee447751b82b9d9abb95d/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09b124fde8aee447751b82b9d9abb95d/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
