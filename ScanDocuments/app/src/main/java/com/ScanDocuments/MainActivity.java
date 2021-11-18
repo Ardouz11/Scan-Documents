@@ -12,17 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.SimCardScan;
+package com.ScanDocuments;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
@@ -32,6 +28,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button mIDCardButton;
     private Button mSimCardButton;
     private Bitmap mSelectedImage;
-  //  private GraphicOverlay mGraphicOverlay;
     // Max width (portrait mode)
     private Integer mImageMaxWidth;
     // Max height (portrait mode)
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mIDCardButton = findViewById(R.id.button_idcard);
         mSimCardButton = findViewById(R.id.button_simcard);
 
-       // mGraphicOverlay = findViewById(R.id.graphic_overlay);
         mIDCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
