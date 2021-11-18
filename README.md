@@ -1,4 +1,4 @@
-Codelabs for ML Kit
+Android app based on  ML Kit
 ============
 
 This repository contains the code of extracting data from Sim Card and the ID Card based on ML Kit
